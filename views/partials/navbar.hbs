@@ -1,0 +1,23 @@
+<nav class="navbar border-bottom navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand " href="#">
+              {{!-- <img src="https://yt3.ggpht.com/ZPi35PIqUlD3cERLUdBkhIDBGqMhsH4J1NlVK3q4uwCIibjmVm9LAQLU806Sa5TvVqZ3xBpWAO0=s600-c-k-c0x00ffffff-no-rj-rp-mo" alt="" width="25" height="25"style=" border-radius: 50%"   class="d-inline-block align-text-top"> --}}
+              <img src="{{data.brandLogoUrl}}" alt="" width="25" height="25"style=" border-radius: 50%"   class="d-inline-block align-text-top">
+
+        {{!-- Market naresh</a> --}}
+        {{{data.brandName}}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse "  id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 py-3  mb-lg-0">
+
+        {{#each data.links}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{this.url}}">{{this.label}}</a>
+        </li>
+        {{/each}}
+      
+    </div>
+  </div>
+</nav>

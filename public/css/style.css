@@ -1,0 +1,15 @@
+.imageHeight {
+        height: 650px;
+        object-fit: cover;
+}
+
+.background1 {
+        color: white;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(90deg, rgba(2, 0, 36, 0.9405813350730917) 0%, rgba(109, 21, 145, 0.974194780451243) 50%, rgba(0, 212, 255, 1) 100%);
+}
+
+.background2 {
+        background: rgb(9,102,103);
+background: linear-gradient(0deg, rgba(9,102,103,1) 0%, rgba(177,139,58,1) 100%);
+}

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>Hello, world!</title>
+  <script src="https://kit.fontawesome.com/7bd8ef2807.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  {{> navbar data= detailFromDb}}
+
+  {{> slider sliderData=sliderData}}
+
+
+  {{!-- Banner1 section --}}
+
+  {{#each banner1}}
+  <section id="banner1_section " , class="background2">
+
+    <div class="container py-5 text-center">
+      {{!-- <h1>Start learning New Techonology courses here by the best faculty</h1> --}}
+      <h1> {{ this.title }}</h1>
+      <p>{{ this.description }}</p>
+      <button class="btn btn-primary" onclick="window.location.href = '{{this.buttonUrl}}';">{{ this.buttonText
+        }}</button>
+    </div>
+  </section>
+  {{/each}}
+
+
+
+
+
+
+  {{!-- Service Section --}}
+
+  <section id="srvices_section" class="py-2 m-4">
+    <div class="container">
+      <h1 class="text-center text-secondary mb-5">Services that We Provide</h1>
+
+
+      <div class="row">
+        {{#each services}}
+        <div class="col-md-4">
+          <div class="card  shadow-sm">
+            <div class="card-body">
+              <div style="color: rgb(59, 59, 193);" class="container text-center py-3">
+                {{!-- <i class="fa-brands fa-accusoft fa-2xl"></i> --}}
+                <i class="{{this.icon}} fa-2xl"></i>
+              </div>
+              {{!-- <h5 class="card-title">Provide best Courses</h5> --}}
+              <h5 class="card-title">{{this.title}}</h5>
+              {{!-- <p>We provide courses that helps our students in learning</p> --}}
+              <p>{{this.description}}</p>
+
+              <a href="{{this.link}}"> {{this.linkText}}</a>
+              <a href="#!" class="ml-3">Support</a>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+
+    </div>
+  </section>
+
+
+  {{!-- Banner2 section --}}
+  {{#each banner2}}
+  <section id="banner2_section " , class="py-4  text-center">
+    <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-6 ">
+          <h1>{{this.title}}</h1>
+          <p>{{this.description}}</p>
+          <button class="btn btn-primary"
+            onclick="window.location.href = '{{this.buttonUrl}}';">{{this.buttonText}}</button>
+        </div>
+        <div class="col-md-6 text-center">
+          {{!-- <img src="/static/images/pic1.jpg" class="img-fluid w-75 " alt=""> --}}
+          <img src="{{this.image}}" class="img-fluid w-75 " alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/each}}
+
+
+  {{!-- Banner3 section --}}
+
+  {{#each banner3}}
+  <section id="banner2_section " , class="py-4  text-center">
+    <div class="container">
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-6 text-center">
+          <img src="{{this.image}}" class="img-fluid w-75 " alt="">
+        </div>
+        <div class="col-md-6 ">
+          <h1>{{this.title}}</h1>
+          <p>{{this.description}}</p>
+          <button class="btn btn-primary"
+            onclick="window.location.href = '{{this.buttonUrl}}';">{{this.buttonText}}</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {{/each}}
+
+
+  {{!-- Contact Form Sections --}}
+
+  <section id="ContactUs_Section" class="background1 py-4">
+    <form action="/contact-form" , method="post">
+      <div class="container" style="width:50vw">
+        <h1 class="text-center text-muted">Contact Us</h1>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Your Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+            placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="contactNumber" class="form-label">Your Contact Number</label>
+          <input type="number" name="phone" class="form-control" id="contactNumber" placeholder="your mob no.">
+        </div>
+        <div class="mb-3">
+          <label for="query" class="form-label">Write your Query</label>
+          <textarea class="form-control" name="query" id="query" rows="5"></textarea>
+        </div>
+        <div class="container text-center">
+          <button type="submit" class="btn btn-dark">submit</button>
+        </div>
+
+      </div>
+    </form>
+
+  </section>
+
+
+  {{!-- About Section --}}
+  <section id="about_section">
+    <div class="container text-center py-4">
+      <div class="row">
+        <div class="col-12">
+          <h1>About this side</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt nobis porro, ipsum accusamus
+            dignissimos inventore debitis corporis, voluptas placeat quam obcaecati vel? Iure, nisi nesciunt molestias
+            odio dignissimos dolores.dignissimos inventore debitis corporis, voluptas placeat quam obcaecati vel? Iure,
+            nisi nesciunt molestias
+            odio dignissimos dolores. dignissimos inventore debitis corporis, voluptas placeat quam obcaecati vel? Iure,
+            nisi nesciunt molestias
+            odio dignissimos dolores.</p>
+          <button class="btn btn-success btn-lg">ContactUs</button>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  {{!-- Footer Section --}}
+
+  {{>footer}}
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
