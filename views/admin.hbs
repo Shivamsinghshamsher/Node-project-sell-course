@@ -17,9 +17,9 @@
   <div class="container">
     <h1 class="text-center">Welcome to admin panel</h1>
 
-    {{!-- For Navbar --}}
+    {{!-- ***************For Navbar************** --}}
 
-    <form action="/admin" , method="post">
+    {{!-- <form action="/admin" , method="post">
       <div class="row row-cols-2">
         <div class="col ">
           <div class="mb-3">
@@ -32,6 +32,7 @@
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+      </div>
     </form>
 
     <form action="/admin" , method="post">
@@ -48,10 +49,46 @@
         <button type="submit" class="btn btn-primary">Submit</button>
 
       </div>
-  </div>
+    </form>
+  </div> --}}
+
+
+
+  {{!-- Slider Section --}}
+  {{!-- To Add a slide --}}
+  <form action="/admin" , method="post">
+    <h1>Add a new slide</h1>
+    <div class="mb-3">
+      <label for="imgUrl" class="form-label">Image url</label>
+      <input type="text" class="form-control" id="imgUrl" name="imgUrl">
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" name="description">
+      <input type="hidden" name="add" value="add">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
   </form>
 
-  </div>
+  {{!-- To Delete a slide --}}
+
+  <form action="/admin" , method="post">
+    <h1>Delete a slide</h1>
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title </label>
+      <input type="text" class="form-control" id="title" name="title"
+        placeholder="Write the Title Which slide you want to delete">
+      <input type="hidden" name="delete" value="delete">
+    </div>
+    <button type="submit" class="btn btn-primary">Delete</button>
+  </form>
+
 
 
 

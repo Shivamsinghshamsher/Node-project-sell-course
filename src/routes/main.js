@@ -11,12 +11,12 @@ const gallery = require('../models/gallery');
 routes.get("/", async (request, response) => {
     //Retriving data from database
 
-    const detail = await details.findOne({ _id: "6456bc02415e492e78517601" });
+    const detail = await details.findOne({ _id: "645b5c4e8a8b64f9add8c34c" });
     // console.log(detail);
     const sliderDataFromDb = await slider.find()
     // console.log(sliderDataFromDb);
     const servicesFromDb = await services.find();
-    console.log(servicesFromDb);
+    // console.log(servicesFromDb);
 
     const banner1Data = await banners.banner1Schema.find();
     // console.log(banner1Data);
@@ -37,9 +37,10 @@ routes.get("/", async (request, response) => {
 
 
 routes.get("/gallery", async (req, res) => {
-    const detail = await details.findOne({ _id: "6456bc02415e492e78517601" });
+    const detail = await details.findOne({ _id: "645b5c4e8a8b64f9add8c34c" });
+    // console.log("navbar from gallery" + detail);
     const galleryDataFromDb = await gallery.find();
-    console.log(galleryDataFromDb);
+    // console.log(galleryDataFromDb);
 
     res.render('gallery', {
         detailFromDb: detail,
@@ -53,10 +54,10 @@ module.exports = routes;
 
 routes.post("/contact-form", async (req, res) => {
     const contactDataFromUser = req.body;
-    console.log(contactDataFromUser);
+    // console.log(contactDataFromUser);
     try {
         const data = await contact.create(req.body)
-        console.log(data);
+        // console.log(data);
         res.redirect("/")
     } catch (error) {
         res.redirect("/")
@@ -72,20 +73,43 @@ routes.get("/admin", (req, res) => {
 
     res.render('admin');
 })
-let myBrandLogoGlobalVariable;
-let myBrandNameGlobalVariable;
-routes.post("/admin", (req, res) => {
 
-    const nevbarData = req.body
-    console.log(nevbarData);
-    console.log(nevbarData.brandLogo);
-    myBrandLogoGlobalVariable = nevbarData.brandLogo
-    console.log(nevbarData.brandName);
 
-    // For nevbarOption
-    console.log(nevbarData.navbarOption);
-    console.log(nevbarData.navbarOptionUrl);
 
-    res.redirect("/admin");
+routes.post("/admin", async (req, res) => {
+    // For Slider Section
+    // const AdminReqBody=req.body;
+    // To add a slide
+    if (req.body.add === "add") {
+
+        const sliderDataFromUser = req.body;
+        console.log(sliderDataFromUser);
+        try {
+            const sliderDataInDb = await slider.create(sliderDataFromUser);
+            console.log("Successfully added a slide ");
+            res.redirect("/admin");
+        } catch (error) {
+            console.log(error);
+            res.redirect("/admin");
+
+        }
+    }
+
+    // To delete a slide
+    if (req.body.delete === "delete") {
+
+
+        const TitleToDeleteSlide = req.body.title;
+        // console.log("Title which slide you want to delete: " + TitleToDeleteSlide);
+        slider.findOneAndDelete({ title: TitleToDeleteSlide })
+            .then((data) => {
+                console.log("Successfully Deleted The slide " + data);
+                res.redirect("/admin");
+            })
+            .catch((error) => {
+                console.error(error);
+                res.redirect("/admin");
+            })
+    }
 });
 
