@@ -14,8 +14,8 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="text-center">Welcome to admin panel</h1>
+  <div class="container my-4">
+    <h1 class="text-center my-4">Welcome to admin panel</h1>
 
     {{!-- ***************For Navbar************** --}}
 
@@ -69,7 +69,7 @@
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <input type="text" class="form-control" id="description" name="description">
-      <input type="hidden" name="add" value="add">
+      <input type="hidden" name="work" value="add">
     </div>
 
     <button type="submit" class="btn btn-primary">Add</button>
@@ -84,9 +84,87 @@
       <label for="title" class="form-label">Title </label>
       <input type="text" class="form-control" id="title" name="title"
         placeholder="Write the Title Which slide you want to delete">
-      <input type="hidden" name="delete" value="delete">
+      <input type="hidden" name="work" value="delete">
     </div>
     <button type="submit" class="btn btn-primary">Delete</button>
+  </form>
+
+
+
+  {{!-- For services section --}}
+
+  {{!-- Add a Service --}}
+  <form action="/admin" , method="post">
+    <h1>Add a new Service</h1>
+    <div class="mb-3">
+      <label for="icon" class="form-label">Icon url (Icon class from fontawesome)</label>
+      <input type="text" class="form-control" id="icon" name="icon"
+        placeholder="please add a icon link only from 'font awesome' website eg. fa-solid fa-people">
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" name="description">
+    </div>
+    <div class="mb-3">
+      <label for="linkText" class="form-label">linkText</label>
+      <input type="text" class="form-control" id="linkText" name="linkText">
+    </div>
+    <div class="mb-3">
+      <label for="link" class="form-label">Link of text</label>
+      <input type="text" class="form-control" id="link" name="link">
+      <input type="hidden" name="work" value="addService">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+
+
+  {{!-- Delete a service --}}
+
+  <form action="/admin" , method="post">
+    <h1>Delete a Service</h1>
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+      <input type="hidden" name="work" value="deleteService">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Delete</button>
+  </form>
+
+
+
+
+{{!-- ************Banner 1 section --}}
+
+
+  <form action="/admin" , method="post">
+    <h1>Replace Banner-1 content</h1>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" name="description">
+    </div>
+    <div class="mb-3">
+      <label for="buttonText" class="form-label">buttonText</label>
+      <input type="text" class="form-control" id="buttonText" name="buttonText">
+    </div>
+    <div class="mb-3">
+      <label for="buttonUrl" class="form-label">Url for button</label>
+      <input type="text" class="form-control" id="buttonUrl" name="buttonUrl">
+      
+      <input type="hidden" name="work" value="replaceBanner1">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Replace</button>
   </form>
 
 
@@ -94,6 +172,80 @@
 
 
 
+
+
+  {{!-- ***********Banner 2 Section*************** --}}
+  {{!-- Edit or replace content of a banner --}}
+
+
+  <form action="/admin" , method="post">
+    <h1>Replace Banner-2 content</h1>
+
+    {{!-- <div class="mb-3">
+      <label for="titleToUpdate" class="form-label">Write the title</label>
+      <input type="text" class="form-control" id="titleToUpdate" name="titleToUpdate">
+    </div> --}}
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" name="description">
+    </div>
+    <div class="mb-3">
+      <label for="buttonText" class="form-label">buttonText</label>
+      <input type="text" class="form-control" id="buttonText" name="buttonText">
+    </div>
+    <div class="mb-3">
+      <label for="buttonUrl" class="form-label">Url for button</label>
+      <input type="text" class="form-control" id="buttonUrl" name="buttonUrl">
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image url </label>
+      <input type="text" class="form-control" id="image" name="image">
+      <input type="hidden" name="work" value="replaceBanner2">
+    </div>
+    <button type="submit" class="btn btn-primary">Replace</button>
+  </form>
+
+
+
+
+
+  {{!-- ****************Banner 3 Section********** --}}
+  {{!-- Edit or replace content of a banner --}}
+
+
+  <form action="/admin" , method="post">
+    <h1>Replace Banner-3 content</h1>
+    {{!-- <div class="mb-3">
+      <label for="titleToUpdate" class="form-label">Write the title</label>
+      <input type="text" class="form-control" id="titleToUpdate" name="titleToUpdate">
+    </div> --}}
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description" name="description">
+    </div>
+    <div class="mb-3">
+      <label for="buttonText" class="form-label">buttonText</label>
+      <input type="text" class="form-control" id="buttonText" name="buttonText">
+    </div>
+    <div class="mb-3">
+      <label for="buttonUrl" class="form-label">Url for button</label>
+      <input type="text" class="form-control" id="buttonUrl" name="buttonUrl">
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image url </label>
+      <input type="text" class="form-control" id="image" name="image">
+      <input type="hidden" name="work" value="replaceBanner3">
+    </div>
+    <button type="submit" class="btn btn-primary">Replace</button>
+  </form>
 
 
 
